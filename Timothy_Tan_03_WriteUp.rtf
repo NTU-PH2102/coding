@@ -1,0 +1,62 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue255;\red5\green99\blue193;}
+{\*\expandedcolortbl;;\csgenericrgb\c0\c0\c100000;\csgenericrgb\c1961\c38824\c75686;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid1\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}.}{\leveltext\leveltemplateid101\'02\'00.;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww13560\viewh10520\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\sl264\slmult1\pardirnatural\partightenfactor0
+
+\f0\b\fs24 \cf0 Timothy Tan\
+U1640148F\
+\
+Explanatory Write-up
+\b0 \
+\
+\pard\pardeftab720\ri-952\sl264\slmult1\qj\partightenfactor0
+\cf0 The equations of motion and characteristic dimension as well as the cyclotron, axial, modified cyclotron and magnetron frequencies are calculated based on Kretzschmar\'92s paper \'91Single particle motion in a Penning trap: description in the classical canonical formalism\'92. \
+\
+The code initially prompts the user to input the following 10 parameters in SI units:\
+\pard\pardeftab720\li1276\fi-556\ri-952\sl264\slmult1\qj\partightenfactor0
+\ls1\ilvl0\cf0 1.	Minimum axial distance to the electrode (z0)\
+2.	Minimum radial distance to the electrode (p0)\
+3.	Voltage (V0)\
+4.	Mass of particle (m)\
+5.	Magnitude of charge of particle (q)\
+6.	Magnitude of magnetic field (B)\
+7.	Modified cyclotron factor\
+8.	Magnetron factor\
+9.	Time\
+10.	Step size (A smaller step size will result in a longer animation time)\
+\pard\pardeftab720\ri-952\sl264\slmult1\qj\partightenfactor0
+\cf0 \
+The characteristic dimension as well as the cyclotron and axial frequencies are then calculated.\
+\
+The segment\
+\pard\pardeftab720\fi720\ri-952\sl264\slmult1\partightenfactor0
+\cf2 if\cf0  ((cyclotron_freq)^2 - 2*(axial_freq)^2) <= 0\
+...\
+\cf2 end\
+\pard\pardeftab720\ri-952\sl264\slmult1\qj\partightenfactor0
+\cf0 checks whether the input parameters are valid for a particle to be trapped.\
+\
+If the input parameters are valid, the script proceeds to calculate the modified cyclotron and magnetron frequencies. Physical properties of the graph and trajectory / curve are then defined.\
+\
+Thereafter, a for loop is used to draw the animation. The radii of the modified cyclotron motion and magnetron motion are calculated. Then, the 3 equations of motion, parametrized by t, are defined. The axes and title are added. Finally, points are added to the trajectory, resulting in an animation.\
+\
+There are three distinct cases that arise based on the differential equation to be solved; the three cases result in different trajectories and patterns when viewed from the top (to see the xy-plane). The three cases are as follows:\
+\
+1.	Modified cyclotron factor < magnetron factor\
+2.	Modified cyclotron factor > magnetron factor\
+3.	Modified cyclotron factor = magnetron factor\
+\
+The user can change these two parameters and observe the resulting patterns.\
+\
+My trajectory does not show smooth curves; instead, it shows lines, which is due to the fact that I did not employ the finite difference method in plotting the animation. However, the finite difference method has its limitations as it is slow and there is an upper bound to the step size. Moreover, it is difficult to observe the three different cases as explained above since the modified cyclotron and magnetron factors are not defined in the finite difference method. Hence, I solved the differential equation to arrive at explicit equations of motion, parametrized by t. Both approaches have their own limitations and I chose the method that is faster while maintaining the same trajectory of the particle that is expected - it oscillates vertically, rotates about the centre of the trap, and rotates about a smaller orbit at the same time.\
+\
+References:\
+\pard\pardeftab720\li360\fi-360\ri-952\sl264\slmult1\qj\partightenfactor0
+\ls2\ilvl0\cf0 1.	Kretzschmar, M. (1992). Single particle motion in a Penning trap: description in the classical canonical formalism. Physica Scripta, 46(6), 544.\
+2.	Blaum Group (2015). Cyclotron frequency in a Penning trap. {\field{\*\fldinst{HYPERLINK "https://www.physi.uni-heidelberg.de/Einrichtungen/FP/anleitungen/F47.pdf"}}{\fldrslt \cf3 \ul \ulc3 https://www.physi.uni-heidelberg.de/Einrichtungen/FP/anleitungen/F47.pdf}}\
+}
