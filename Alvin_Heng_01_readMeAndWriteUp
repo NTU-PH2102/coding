@@ -4,7 +4,7 @@ Two graphs will appear: one plots the complete trajectory of the particle, the o
 
 Parameters that can be adjusted to the user's preference are commented clearly in the script under the first section "INPUT PARAMETERS". 
 The user should adjust them directly in the code if the user desires. The other sections of the code are mostly to do with calculations 
-and plotting, hence it is not recommended to change them.
+and plotting, hence it is better to not change them.
 
 In particular,the trap is most sensitive to changes in B and V0 (parameters that affect the B and E field), and they have already been 
 defined to values that trap the particle nicely. Wrong combinations of B and V0 can cause the trap to fail and the particle to escape.
