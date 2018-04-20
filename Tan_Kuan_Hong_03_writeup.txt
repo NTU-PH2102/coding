@@ -1,0 +1,8 @@
+The calculation part is by help of the article: The calculation part is by help of the article: First-order 
+perturbative calculation of the frequency-shifts caused by static cylindrically-symmetric electric and magnetic 
+imperfections of a Penning trap by Jochen K. At first of the coding, we prompt user to enter all the variables: 
+q, V0, m, B0, d, c1, c2 and z0. Besides, it will also check that the variables obey the conditions of trapping.
+
+With the variables and the equations founded in calculation part, the we can find all the frequencies and by the 
+help of frequencies, we can compute the trajectory in x, y and z-direction. Hence, with those equations, we can 
+plot the graph and the animation present.
