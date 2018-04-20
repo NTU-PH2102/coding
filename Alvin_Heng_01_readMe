@@ -1,6 +1,0 @@
-Code is adapted from Ian Cooper's finite differences method Matlab code. Simply open the .m file in Matlab and run the script.
-Two graphs will appear; one plots the complete trajectory of the particle, and one plots the animated path of the particle's trajectory.
-
-Parameters that can be adjusted to the user's preference are commented clearly in the script. 
-
-Equations written in the script are derived in the submitted writeup.
