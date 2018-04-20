@@ -1,0 +1,16 @@
+First, enter all the variables:
+
+charge of particle (q)
+mass of particle (m)
+magnetic field supplied (B0)
+voltage supplied (V0)
+characteristic trap dimension (d)
+amplitude of cyclotron motion (c1)
+amplitude of magnetron motion (c2)
+amplitude of axial oscillator (z0)
+
+Ensure:
+q*V0 > 0
+Wc^2 > 2Wz^2
+
+After all the variables are entered, wait until the graph generated.
