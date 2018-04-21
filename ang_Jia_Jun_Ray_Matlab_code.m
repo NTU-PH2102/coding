@@ -15,6 +15,7 @@ zlabel('z position') % x-axis label
 
 % =========================================================================
 % INPUT PARAMETERS
+% Varying the parameters allow you to observe from different perspectives
 % =========================================================================
 
 % Particle  e = 1.602e-19   proton m = 1.67e-27
@@ -75,7 +76,7 @@ x(1) = x0;
 y(1) = y0;
 z(1) = z0;
 
-plot3(x(1),y(1),z(1),'bo')
+plot3(x(1),y(1),z(1),'b.')
 drawnow;
 
 % Initialising for n = 2 by first calculating the first two terms
@@ -88,7 +89,7 @@ x(2) = x(1)+vx(1)*dt;
 y(2) = y(1)+vy(1)*dt;
 z(2) = z(1)+vz(1)*dt;
 
-plot3(x(2),y(2),z(2),'bo')
+plot3(x(2),y(2),z(2),'b.')
 drawnow;
 
 % Generating plots for n = 3 onwards
@@ -98,6 +99,6 @@ for i = 3:index
     y(i) = k1*y(i-1)+(-y(i-2))+(-k2*x(i))+k2*x(i-2);
     z(i) = kz*z(i-1)-z(i-2);
     
-    plot3(x(i),y(i),z(i),'bo')
+    plot3(x(i),y(i),z(i),'b.')
     drawnow;
 end
