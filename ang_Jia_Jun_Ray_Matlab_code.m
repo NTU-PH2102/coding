@@ -75,10 +75,10 @@ z(2) = z(1)+uz*dt;
 
 plot3(x(2),y(2),z(2),'b.')
 drawnow;
-
+    
 % Generating plots for n = 3 onwards
 % using the initialized first and second terms
-for i = 3:index
+    for i = 3:index
     x(i) = ((1+k2^2))^(-1)*((k1*x(i-1))+((-1+k2^2)*x(i-2))+((-2)*k2*y(i-2))+(k1*k2*y(i-1)));
     y(i) = k1*y(i-1)+(-y(i-2))+(-k2*x(i))+k2*x(i-2);
     z(i) = kz*z(i-1)-z(i-2);
