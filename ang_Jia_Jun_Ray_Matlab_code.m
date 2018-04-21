@@ -33,7 +33,7 @@ B_0 = 5.05;
 V_0 = 2;
 
 % Time parameters
-dt = 1e-7; % Time interval t (which is given as h in the formulas)
+dt = 1e-8; % Time interval t (which is given as h in the formulas)
 duration = 1e-3; % Total duration
 index = round(duration/dt); % Number of intervals / plots
 
