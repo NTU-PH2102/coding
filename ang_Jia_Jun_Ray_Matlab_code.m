@@ -15,7 +15,6 @@ zlabel('z position') % x-axis label
 
 % =========================================================================
 % INPUT PARAMETERS
-% Varying the parameters allow you to observe from different perspectives
 % =========================================================================
 
 % Particle  e = 1.602e-19   proton m = 1.67e-27
@@ -25,7 +24,7 @@ q = 1.602e-19;  m = 1.67e-27;
 x0 = 0.001;   y0 = 0.001;   z0 = 0.001;
 
 % Initial velocites
-ux = 1e-3;   uy = 1e-3;   uz = 0;
+ux = 330;   uy = 330;   uz = 0;
 
 % B-field strength (Only appled to Z direction)
 B_0 = 5.05;
@@ -50,18 +49,6 @@ x = zeros(index,1);
 y = zeros(index,1);
 z = zeros(index,1);
 
-% Initializing velocity for use
-% Only the first 2 cases have to be initialized
-vx = zeros(2,1);
-vy = zeros(2,1);
-vz = zeros(2,1);
-
-% Initializing acceleration for use
-% Only the first 2 cases have to be initialized
-ax = zeros(2,1);
-ay = zeros(2,1);
-az = zeros(2,1);
-
 %%%%%%%%%%%% Evaluating the parameters %%%%%%%%%%%%
 %%% Derivations can be found in the rough notes %%%
 k1 = ((q*dt*dt*V_0)/(2*d*d*m))+2;
@@ -81,13 +68,10 @@ drawnow;
 
 % Initialising for n = 2 by first calculating the first two terms
 % of the velocity in each direction using kinetmatics
-vx(1) = ux;
-vy(1) = uy;
-vz(1) = uz;
 
-x(2) = x(1)+vx(1)*dt;
-y(2) = y(1)+vy(1)*dt;
-z(2) = z(1)+vz(1)*dt;
+x(2) = x(1)+ux*dt;
+y(2) = y(1)+uy*dt;
+z(2) = z(1)+uz*dt;
 
 plot3(x(2),y(2),z(2),'b.')
 drawnow;
