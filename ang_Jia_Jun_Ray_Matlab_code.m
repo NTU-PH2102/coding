@@ -27,7 +27,7 @@ x0 = 0.001;   y0 = 0.001;   z0 = 0.001;
 ux = 330;   uy = 330;   uz = 0;
 
 % B-field strength (Only appled to Z direction)
-B_0 = 5.05;
+B_0 = 0.5;
 
 % Initial voltage strength
 V_0 = 2;
