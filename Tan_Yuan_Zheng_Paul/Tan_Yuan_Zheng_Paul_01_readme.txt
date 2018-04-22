@@ -8,12 +8,15 @@ I have set the animation to look for the five js scripts in the js folder, so pl
 If you have cloned or downloaded this repo/folder, open Tan_Yuan_Zheng_Paul_01_main.html in the same folder to view the animation
 If you have not (or do not know how to), go to https://sorewachigauyo.github.io/penning-trap/main.html
 It is essentially the same file hosted on my personal github pages.
+You may need to use another browser if the animation does not play.
 
+If the animation still does not work, I have included a gif file but only diplaying 1000 frames.
 
 The files in this directory are:
 Tan_Yuan_Zheng_Paul_01_readme.txt : Readme
 Tan_Yuan_Zheng_Paul_02_main.html : html page to view the animation
 Tan_Yuan_Zheng_Paul_08_writeup.pdf : Writeup
+Tan_Yuan_Zheng_Paul_09_backupanim.gif : Backup gif
 
 in /js folder
 Tan_Yuan_Zheng_Paul_03_main.js : The main script that sets up the animation and parameters
