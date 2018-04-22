@@ -8,9 +8,9 @@ syms V x y z
 % Basic parameters
 
 % Electric and Magnetic parameters
-V_0=100;
+V_0=-100;
 B_0=[0,0,1e-6];
-q_0=1.6022e-19;
+q_0=-1.6022e-19;
 % Gravity and mass charge
 g_0=0;
 m_0=9.11E-31;
