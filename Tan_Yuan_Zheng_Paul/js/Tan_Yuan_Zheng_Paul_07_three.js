@@ -1,4 +1,4 @@
-// Library for animation
+// Library for animation, courtesy https://threejs.org/
 
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
