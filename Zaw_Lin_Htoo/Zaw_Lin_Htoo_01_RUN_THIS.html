@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>Penning Trap Simulator</title>
+		<style>
+			html, body {
+				margin: 0;
+				padding:0;
+				overflow:hidden;
+			}
+			canvas {
+				width: 100vw;
+				height: 100vh;
+			}
+			#information {
+				position: fixed;
+				bottom: 0;
+				left: 0;
+				background-color: rgba(0, 0, 0, .25);
+				min-width: 500px;
+				padding: .2rem;
+				font-family: monospace;
+				color: white;
+			}
+			#ohNo {
+				background-color: rgba(200,0,0,.6);
+				color: black;
+				box-sizing: border-box;
+				padding: 1rem 0;
+				opacity: .75;
+				transition: 1s ease-in-out;
+				top: -50%;
+				position: fixed;
+			}
+			#hello {
+				font-family: monospace;
+				position: fixed;
+				transition: .75s ease-out;
+				opacity: 1;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				z-index: 99;
+				background-color: rgba(0,0,0, .75);
+				overflow: hidden;
+			}
+			#ohNo,
+			#hello h1 {
+				left: 0;
+				right: 0;
+				transform: translateY(-50%);
+				font-family: monospace;
+				text-align: center;
+				cursor: default;
+			}
+			#hello h1 {
+				color: white;
+				top: 50%;
+				font-weight: normal;
+				font-size: 1.6rem;
+				line-height: 2.5rem;
+				position: absolute;
+			}
+			#hello h1 b {
+				text-decoration: underline;
+				font-weight: bolder;
+			}
+		</style>
+		<script src="Zaw_Lin_Htoo_02_libs.js"></script>
+	</head>
+	<body>
+		<div id="hello"><h1>
+			Hello, please<br>
+			<b>Click &amp; drag</b> to rotate<br>
+			<b>Right-click &amp; drag</b> to pan<br>
+			<b>Scroll</b> to zoom
+		</h1></div>
+		<div id="animation">
+			<h1 id="ohNo">oh no your particle is escaping</h1>
+			<div id="information">
+				<div style="text-align: center; margin: .65rem 0;">
+					Animation running at a factor of <span id="infoSpeed"></span> compared to real time
+				</div>
+				<div style="float:left; margin-right: 25px; margin-left: 16px;">
+					x: <div style="width: 100px; display: inline-block; text-align: right;"><span id="infoX"></span> m</div><br>
+					y: <div style="width: 100px; display: inline-block; text-align: right;"><span id="infoY"></span> m</div><br>
+					z: <div style="width: 100px; display: inline-block; text-align: right;"><span id="infoZ"></span> m</div>
+				</div>
+				<div style="float:left; margin-right: 25px;">
+					<span style="color: #EEBB00">F<sub>B,x</sub>:</span> <div style="width: 100px; display: inline-block; text-align: right;"><span id="infoFBx"></span> N</div><br>
+					<span style="color: #EEBB00">F<sub>B,y</sub>:</span> <div style="width: 100px; display: inline-block; text-align: right;"><span id="infoFBy"></span> N</div><br>
+					<span style="color: #EEBB00">F<sub>B,z</sub>:</span> <div style="width: 100px; display: inline-block; text-align: right;"><span id="infoFBz"></span> N</div><br>
+				</div>
+				<div style="margin-bottom: .75rem;">
+					<span style="color: #22CCCC">F<sub>E,x</sub>:</span> <div style="width: 100px; display: inline-block; text-align: right;"><span id="infoFEx"></span> N</div><br>
+					<span style="color: #22CCCC">F<sub>E,y</sub>:</span> <div style="width: 100px; display: inline-block; text-align: right;"><span id="infoFEy"></span> N</div><br>
+					<span style="color: #22CCCC">F<sub>E,z</sub>:</span> <div style="width: 100px; display: inline-block; text-align: right;"><span id="infoFEz"></span> N</div><br>
+				</div>
+			</div>
+	    <script src="Zaw_Lin_Htoo_03_penning.js"></script>
+			<script>particle = new Particle</script>
+	    <script src="Zaw_Lin_Htoo_04_gui.js"></script>
+	    <script src="Zaw_Lin_Htoo_05_animation.js"></script>
+		</div>
+	</body>
+</html>
