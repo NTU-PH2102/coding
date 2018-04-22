@@ -63,6 +63,7 @@ v = v+ad*timestep;
 B = cross(v,B_0);
 % Calculating next timestep (acceleration)
 a = [q_0/m_0*(ddX+B(1))+G(1),q_0/m_0*(ddY+B(2))+G(2),q_0/m_0*(-ddZ+B(3))-G(3)];
+% Storing acceleration, used for debugging
 A(1,i)=ad(1);
 A(2,i)=ad(2);
 A(3,i)=ad(3);
