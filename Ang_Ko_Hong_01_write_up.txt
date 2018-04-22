@@ -1,0 +1,4 @@
+The code is adapted from https://github.com/dilynfullerton/penning/
+The original code was done in python and was made to visualise a penning trap in 3 dimensions.
+The method for visualising the penning trap is to first find the eigenfrequencies that are related to the penning trap which were given in write up of the theory from the write up that was given in the homework prompt. 
+The program assumes that the penning trap is perfect. 
