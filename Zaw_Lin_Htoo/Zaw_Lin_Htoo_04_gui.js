@@ -38,8 +38,8 @@ var doUpdateTimeout,
       controls.enabled = true
     }
 
-function Options(V0, B0, d) {
-  this.init(V0, B0, d)
+function Options(V0, B0) {
+  this.init(V0, B0)
 
   this.customSpeed = 1
 
@@ -120,21 +120,9 @@ function Options(V0, B0, d) {
     }, 500)
   }
 
-  this.updateD = function() {
-    this.d = this.dNum * 10**this.dScale
-
-    if (doUpdate.indexOf("d") < 0)
-      doUpdate.push("d")
-
-    clearTimeout(doUpdateTimeout)
-    doUpdateTimeout = setTimeout(function() {
-      doUpdateNow = true
-    }, 500)
-  }
-
   this.Reset = function() {
     particle = new Particle
-    this.init(particle.V0, particle.B0, particle.d)
+    this.init(particle.V0, particle.B0)
 
     this.customSpeed = 1
     this.particleHistory = 10
@@ -143,7 +131,7 @@ function Options(V0, B0, d) {
     doUpdateNow = true
   }
 }
-Options.prototype.init = function(V0, B0, d) {
+Options.prototype.init = function(V0, B0) {
   let V        = V0.toExponential().split("e")
   this.V0      = V0
   this.V       = Number(V[0])
@@ -153,11 +141,6 @@ Options.prototype.init = function(V0, B0, d) {
   this.B0     = B0
   this.B      = Number(B[0])
   this.Bscale = Number(B[1])
-
-  let dNum    = d.toExponential().split("e")
-  this.d      = d
-  this.dNum   = Number(dNum[0])
-  this.dScale = Number(dNum[1])
 
   this.position = particle.x(0)
   this.velocity = particle.v(0)
@@ -191,7 +174,7 @@ Options.prototype.init = function(V0, B0, d) {
 }
 
 var gui = new dat.GUI(),
-    opt = new Options(particle.V0, particle.B0, particle.d)
+    opt = new Options(particle.V0, particle.B0)
 
 var optInit = gui.addFolder("Initial Conditions")
 for (let k=0; k<2; k++) {
@@ -253,26 +236,6 @@ optTrap
   })
   .onFinishChange(function() {
     opt.updateB0()
-    controls.enabled = true
-  })
-optTrap
-  .add(opt, "dNum", 1, 9, .01)
-  .name("d")
-  .onChange(function() {
-    controls.enabled = false
-  })
-  .onFinishChange(function() {
-    opt.updateD()
-    controls.enabled = true
-  })
-optTrap
-  .add(opt, "dScale", -6, 6, 1)
-  .name("<span style='margin: 0 1em;'></span></span> × 10^")
-  .onChange(function() {
-    controls.enabled = false
-  })
-  .onFinishChange(function() {
-    opt.updateD()
     controls.enabled = true
   })
 optTrap.open()

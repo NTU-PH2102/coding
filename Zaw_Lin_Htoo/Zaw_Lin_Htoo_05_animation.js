@@ -394,7 +394,7 @@ var t0        = null, // Initialise the variable for the start time
         gridLabelObjects[2].position.y = -gridSize/2
 
         // Re-initialise the settings
-        opt.init(particle.V0, particle.B0, particle.d)
+        opt.init(particle.V0, particle.B0)
 
         // Reset all the update parameters
         doUpdate = []

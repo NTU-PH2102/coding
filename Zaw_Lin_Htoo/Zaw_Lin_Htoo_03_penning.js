@@ -3,10 +3,10 @@
 // from the writeup in code, so not
 // much programming here
 
-function Particle(x=[.25, .25, .2], v=[1,1,1], m=9.10938356E-31, q=1.60217662E-19, V0=5E4, B0=1.9, d=1E-3) {
-  this.init(x, v, m, q, V0, B0, d)
+function Particle(x=[10, 0, 5], v=[10, 10, 5], m=9.10938356E-31, q=1.60217662E-19, V0=6E2, B0=1.9E-5) {
+  this.init(x, v, m, q, V0, B0)
 }
-Particle.prototype.init = function(x, v, m, q, V0, B0, d) {
+Particle.prototype.init = function(x, v, m, q, V0, B0) {
   /*
     Define an object type Particle,
     which we will use as a prototype
@@ -25,14 +25,14 @@ Particle.prototype.init = function(x, v, m, q, V0, B0, d) {
     q is the CHARGE
     V0 is... V0
     B0 is... you get the drift
-    d is the characteristic trap dimension
+
   */
 
   this.m     = m  || this.m
   this.q     = q  || this.q
   this.V0    = V0 || this.V0
   this.B0    = B0 || this.B0
-  this.d     = d  || this.d
+  this.d     = Math.sqrt( .5 * ( x[2]**2 + (x[0]**2 + x[1]**2)/2 )  )
 
   this.stable = {
     z:  ( this.q*this.V0 )/( this.m*this.d**2 ) > 0,
@@ -62,7 +62,7 @@ Particle.prototype.init = function(x, v, m, q, V0, B0, d) {
   this.Py    = Math.atan2( v[1] + omega*x[0], Omega*x[1] )
   this.scale = {
                  t: Math.PI / Math.max(
-                      this.Osum, this.Oz, this.Osum
+                      this.Osum, this.Oz, this.Odiff
                     )/2,
                  x: 10/Number(
                       Math.sqrt( this.A[0]**2 + this.A[1]**2 ).toPrecision(1)
@@ -137,7 +137,7 @@ Particle.prototype.v = function(t) {
            this.A[1] *
             (
               this.Osum  * Math.cos( this.Osum*t  - this.Py ) -
-              this.Odiff * Math.sin( this.Odiff*t - this.Py )
+              this.Odiff * Math.cos( this.Odiff*t - this.Py )
             ),
        this.A[0] *
             (
@@ -205,17 +205,17 @@ Particle.prototype.F = function(t) {
 // the main thing being that they take the current position
 // and velocity, and use it as the new "initial" conditions
 Particle.prototype.setV0 = function(V0, t=0) {
-  this.init(this.x(t), this.v(t), this.m, this.q, V0 || this.V0, this.B0, this.d)
+  this.init(this.x(t), this.v(t), this.m, this.q, V0 || this.V0, this.B0)
 }
 Particle.prototype.setB0 = function(B0, t=0) {
-  this.init(this.x(t), this.v(t), this.m, this.q, this.V0, B0 || this.B0, this.d)
+  this.init(this.x(t), this.v(t), this.m, this.q, this.V0, B0 || this.B0)
 }
 Particle.prototype.setD = function(d, t=0) {
   this.init(this.x(t), this.v(t), this.m, this.q, this.V0, this.B0, d || this.d)
 }
 Particle.prototype.setM = function(m, t=0) {
-  this.init(this.x(t), this.v(t), m || this.m, this.q, this.V0, this.B0, this.d)
+  this.init(this.x(t), this.v(t), m || this.m, this.q, this.V0, this.B0)
 }
 Particle.prototype.setQ = function(q, t=0) {
-  this.init(this.x(t), this.v(t), this.m, q || this.q, this.V0, this.B0, this.d)
+  this.init(this.x(t), this.v(t), this.m, q || this.q, this.V0, this.B0)
 }
